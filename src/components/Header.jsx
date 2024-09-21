@@ -46,17 +46,18 @@ export default function Header() {
         <>
             <div className='black-overlay w-full h-full fixed duration-500' onClick={hideSideMenu} style={{
                 opacity: toggle ? 1 : 0, 
-                visibility: toggle ? 'visible' : 'hidden'
+                visibility: toggle ? 'visible' : 'hidden',
+                zIndex: 99999999
             }}>
                 <div onClick={(e) =>{
                     e.stopPropagation();
-                }} className='w-[500px] bg-white h-full absolute duration-[400ms]' style={{
+                }} className='w-[200px] md:w-[500px] bg-white h-full absolute duration-[400ms]' style={{
                     left: toggle ? "0%" : "-100%",
                 }}>  
                 </div>
             </div>
 
-            <header className='p-[15px] shadow-xl text-[#686b78]'>
+            <header className='p-[15px] shadow-xl text-[#686b78] sticky top-0 z-[9999] bg-white'>
                 <div className='max-w-[1200px] mx-auto flex items-center'>
 
                     <div className='w-[100px]'>
@@ -68,7 +69,7 @@ export default function Header() {
                         <RxCaretDown onClick={showSideMenu} fontSize={25} className='inline text-[#fc8019] cursor-pointer'/>
                     </div>
 
-                    <nav className='flex list-none gap-10 ml-auto text-[18px] font-semibold'>
+                    <nav className='hidden md:flex list-none gap-10 ml-auto text-[18px] font-semibold'>
                         {
                             links.map((link,index) =>{
                                 return <li key={index} className='flex items-center gap-2 hover:text-[#fc8019] cursor-pointer'>
